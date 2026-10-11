@@ -1,0 +1,117 @@
+/* One persistent Three.js scene, with a complete static alternative. */
+.ending-telescope{padding-top:115px;padding-bottom:0;overflow:visible;background:radial-gradient(ellipse at 15% 20%,#14212e66,transparent 35%)}
+.ending-telescope .telescope-intro{max-width:900px;margin-bottom:40px}
+.ending-telescope .telescope-intro h2{font-size:clamp(60px,7vw,110px);margin:25px 0}
+.ending-telescope .telescope-intro>p:last-child{font:clamp(22px,2.4vw,32px)/1.5 var(--serif);color:#bfc7d0}
+.ending-telescope .telescope-story{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:5vw;align-items:start}
+.ending-telescope .telescope-visual{min-width:0;margin:0;position:sticky;top:6svh}
+.ending-telescope .telescope-stage{position:relative;isolation:isolate;aspect-ratio:620/710;max-height:77svh;overflow:hidden}
+.ending-telescope .telescope-static{width:100%;height:auto;max-height:none;display:block}
+.ending-telescope:not(.telescope-ready) .telescope-stage{aspect-ratio:auto;max-height:none}
+.ending-telescope .telescope-canvas{position:absolute;inset:0;opacity:0}
+.ending-telescope .telescope-canvas canvas{display:block;width:100%;height:100%}
+.ending-telescope .telescope-visual figcaption{font:11px/1.65 var(--mono);color:#a4aeba;max-width:540px;padding:18px 5% 0}
+.ending-telescope .telescope-visual figcaption a{white-space:nowrap;color:#d3c19f}
+.ending-telescope .telescope-stage svg text{font:18px var(--mono);letter-spacing:0;fill:#bfcbd2}
+.ending-telescope .telescope-stage svg .tel-svg-heading{font-size:13px;letter-spacing:.08em;fill:#d4c19a}
+.ending-telescope .tel-svg-ray{fill:none;stroke:#ecd29f;stroke-width:2}
+.ending-telescope .tel-svg-rule{fill:none;stroke:#70808e;stroke-width:1}
+.ending-telescope .telescope-optics,.ending-telescope .telescope-world-label,.ending-telescope .telescope-spectrum-comparison{display:none}
+.ending-telescope .telescope-step{min-height:60svh;display:flex;justify-content:center;flex-direction:column;padding:60px 0;min-width:0}
+.ending-telescope .telescope-step h3{font-size:clamp(38px,4.2vw,66px);margin:22px 0 25px}
+.ending-telescope .telescope-step>p:not(.eyebrow){font:clamp(18px,1.65vw,22px)/1.75 var(--sans);color:#bec8d2}
+.ending-telescope .telescope-step>p+p{margin-top:22px}
+.ending-telescope .telescope-question{min-height:80svh;padding-bottom:110px}
+.ending-telescope .telescope-question h3{margin-top:36px;font-size:clamp(42px,4.5vw,72px);line-height:1.08}
+.ending-telescope .telescope-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.ending-telescope.telescope-ready .telescope-static{visibility:hidden}
+.ending-telescope.telescope-ready .telescope-canvas{opacity:var(--telescope-view-opacity,0);transform:scale(var(--telescope-view-scale,.5));transform-origin:0 100%;z-index:2}
+.ending-telescope.telescope-ready .telescope-optics,.ending-telescope.telescope-ready .telescope-world-label,.ending-telescope.telescope-ready .telescope-spectrum-comparison{display:flex;position:absolute;bottom:3%;left:5%;right:5%;flex-direction:column;gap:6px;font:11px/1.5 var(--mono);color:#c6d5df;text-shadow:0 2px 12px #080d14;pointer-events:none}
+.ending-telescope.telescope-ready .telescope-optics{opacity:var(--telescope-rays,0)}
+.ending-telescope.telescope-ready .telescope-world-label{opacity:var(--telescope-world,0)}
+.ending-telescope.telescope-ready .telescope-spectrum-comparison{display:flex;inset:auto 5% 20px;gap:14px;opacity:var(--telescope-spectrum,0);font-size:12px;line-height:1.4}
+.ending-telescope .spectrum-row,.ending-telescope .spectrum-axis{position:relative;min-width:0}
+.ending-telescope .spectrum-row{display:flex;flex-direction:column;gap:7px}
+.ending-telescope .spectrum-row>span{position:relative;color:#e2d6b9}
+.ending-telescope .spectrum-strip{display:block;position:relative;height:24px;width:100%;border-radius:1px}
+.ending-telescope .spectrum-band-note{position:absolute;right:0;color:#f1dbaa;opacity:var(--spectrum-band-note,0)}
+.ending-telescope .spectrum-after .spectrum-strip::after{content:"";position:absolute;left:53%;width:8%;top:-3px;bottom:-3px;border:1px solid #f1dbaa;opacity:var(--spectrum-band-note,0)}
+.ending-telescope .tel-svg-band-marker{fill:none;stroke:#f1dbaa;stroke-width:2}
+.ending-telescope .telescope-stage svg .tel-svg-band-note{font-size:20px;fill:#f1dbaa}
+.ending-telescope .spectrum-axis{color:#aebbc7}
+.ending-telescope .telescope-stage svg .tel-svg-spectrum-label{font-size:25px}
+@media(max-width:1050px) and (min-width:701px){.ending-telescope .telescope-story{gap:30px;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}.ending-telescope .telescope-step h3{font-size:42px}}
+@media(max-width:700px){
+ .ending-telescope{padding-top:75px}.ending-telescope .telescope-intro{margin-bottom:30px}.ending-telescope .telescope-intro h2{font-size:clamp(53px,13vw,80px)}
+ .ending-telescope .telescope-story{display:block}.ending-telescope .telescope-visual{position:relative;top:auto;margin:0 -12px 20px}
+ .ending-telescope .telescope-stage{max-height:none;aspect-ratio:620/710}.ending-telescope .telescope-static{max-height:none}
+ .ending-telescope .telescope-visual figcaption{font-size:10px;padding-top:10px}
+ .ending-telescope .telescope-step{min-height:0;padding:36px 0}.ending-telescope .telescope-step h3{font-size:43px;margin:17px 0 23px}.ending-telescope .telescope-step>p:not(.eyebrow){font-size:18px;line-height:1.65}.ending-telescope .telescope-question{padding-bottom:80px}.ending-telescope .telescope-question h3{font-size:clamp(44px,11vw,66px)}
+ .ending-telescope .telescope-stage svg text{font-size:23px}.ending-telescope .telescope-stage svg .tel-svg-heading{font-size:17px}
+ .ending-telescope.telescope-ready .telescope-visual{position:sticky;top:0;height:clamp(308px,calc(46svh + 38px),458px);margin-bottom:0;z-index:2;background:var(--night);padding-bottom:10px;overflow:hidden}
+ .ending-telescope.telescope-ready .telescope-stage{height:calc(100% - 66px);max-height:none;aspect-ratio:auto;margin-inline:-12px}
+ .ending-telescope.telescope-ready .telescope-visual figcaption{padding:4px 12px 0;font-size:9px;line-height:1.5}
+ .ending-telescope.telescope-ready .telescope-step{min-height:72svh;padding-top:10svh;padding-bottom:17svh}
+ .ending-telescope.telescope-ready .telescope-question{min-height:85svh;padding-bottom:28svh}
+ .ending-telescope.telescope-ready .telescope-optics,.ending-telescope.telescope-ready .telescope-world-label{font-size:10px;bottom:1%;left:4%;gap:0}
+ .ending-telescope.telescope-ready .telescope-spectrum-comparison{inset:auto 16px 3px;display:flex;gap:6px;font-size:12px;line-height:1.4}
+ .ending-telescope .spectrum-row,.ending-telescope .spectrum-axis{position:static;transform:none;white-space:normal}
+ .ending-telescope .spectrum-row{display:flex;flex-direction:column;gap:3px}
+ .ending-telescope .spectrum-strip{display:block;height:10px;width:100%;border-radius:1px}
+ .ending-telescope .spectrum-axis{font-size:12px}
+ .ending-telescope .telescope-stage svg .tel-svg-spectrum-label{font-size:27px}
+}
+@media(max-height:650px) and (max-width:700px){.ending-telescope.telescope-ready .telescope-step{padding-top:8svh}}
+@media(prefers-reduced-motion:reduce){.ending-telescope .telescope-visual{position:relative;top:auto}.ending-telescope .telescope-step{min-height:0;padding-block:35px}}
+.reduced-motion .ending-telescope .telescope-visual{position:relative;top:auto}.reduced-motion .ending-telescope .telescope-step{min-height:0;padding-block:35px}
+@media print{.ending-telescope .telescope-story{display:block}.ending-telescope .telescope-visual{position:relative!important;top:auto!important;height:auto!important}.ending-telescope .telescope-static{visibility:visible!important;max-height:none}.ending-telescope .telescope-stage{height:auto!important;max-height:none}.ending-telescope .telescope-canvas,.ending-telescope .telescope-optics,.ending-telescope .telescope-world-label,.ending-telescope .telescope-spectrum-comparison{display:none!important}.ending-telescope .telescope-step{min-height:0!important;padding:25px 0!important}}
+
+/* Discovery belongs to the detector image. Its fixed-radius source is revealed
+   through better contrast; its shape is never scaled into a resolved planet. */
+.ending-telescope .discovery-field,.ending-telescope .telescope-model-note{display:none}
+.ending-telescope .telescope-scenario{position:absolute;top:12px;left:5%;z-index:5;font:10px/1.4 var(--mono);letter-spacing:.03em;color:#aab8c3}
+.ending-telescope.telescope-ready .discovery-field{display:block;position:absolute;inset:0;opacity:var(--discovery-opacity,1);pointer-events:none;z-index:1}
+.ending-telescope .discovery-sky{display:block;width:100%;height:100%;transform:translateX(var(--discovery-shift,18px))}
+.ending-telescope .discovery-stars{opacity:.22}
+.ending-telescope .discovery-source{opacity:var(--discovery-signal,.27)}
+.ending-telescope .discovery-noise{opacity:var(--discovery-noise,.745)}
+.ending-telescope .telescope-stage .discovery-source-label{font:14px var(--mono);fill:#bac7cf;opacity:var(--discovery-label,0)}
+.ending-telescope .discovery-collection{position:absolute;bottom:12%;right:7%;width:82px;display:flex;flex-direction:column;gap:5px;opacity:var(--discovery-collect,0);font:10px/1.5 var(--mono);color:#93a1ad}
+.ending-telescope .discovery-meter{display:block;height:2px;background:#34414d;width:100%}
+.ending-telescope .discovery-meter i{display:block;width:100%;height:100%;background:#9b9a8e;transform:scaleX(var(--discovery-meter,0));transform-origin:left}
+.ending-telescope.telescope-ready .telescope-model-note{display:block;position:absolute;top:40px;left:5%;right:4%;z-index:3;opacity:var(--telescope-model,0);font:12px/1.6 var(--mono);color:#d9ceba}
+.ending-telescope .telescope-model-note span{color:#9fadb9;font-size:10px}
+.ending-telescope.telescope-ready .telescope-optics{z-index:3;bottom:2%;font-size:10px}
+.ending-telescope.telescope-ready .telescope-world-label,.ending-telescope.telescope-ready .telescope-spectrum-comparison{z-index:3}
+.ending-telescope:not(.telescope-ready) .telescope-scenario{position:static;display:block;padding:0 7% 12px}
+@media(max-width:700px){
+ .ending-telescope .telescope-scenario{top:5px;left:16px;font-size:9px}
+ .ending-telescope.telescope-ready .telescope-model-note{top:22px;left:16px;font-size:10px;line-height:1.35}
+ .ending-telescope .telescope-model-note span{font-size:9px}
+ .ending-telescope .discovery-collection{bottom:14%;right:7%;width:68px;font-size:9px;gap:5px}
+ .ending-telescope .spectrum-band-note{font-size:10px;top:1px}
+ .ending-telescope .telescope-stage .discovery-source-label{font-size:20px}
+ .ending-telescope.telescope-ready .telescope-optics{font-size:8px;left:16px;right:12px}
+ .ending-telescope.telescope-ready .telescope-world-label{font-size:9px;left:16px;right:12px}
+}
+@media print{.ending-telescope .discovery-field,.ending-telescope .telescope-model-note{display:none!important}}
+
+/* A short interval with only the field before the first explanatory sentence. */
+.ending-telescope.telescope-ready .telescope-steps{padding-top:28svh}
+@media(max-width:700px){.ending-telescope.telescope-ready .telescope-steps{padding-top:15svh}}
+
+@media(max-width:700px){
+ .ending-telescope.telescope-ready .telescope-model-note{top:21px;line-height:1.3}
+ .ending-telescope .telescope-model-note br,.ending-telescope .telescope-model-note span{display:none}
+}
+
+/* Split the existing spectrum passage into a brief look and its explanation. */
+.ending-telescope.telescope-ready .telescope-observation{min-height:28svh;padding-block:24px}
+.ending-telescope.telescope-ready .telescope-explanation{min-height:44svh;padding-top:28px;padding-bottom:44px}
+@media(max-width:700px){
+ .ending-telescope.telescope-ready .telescope-observation{min-height:35svh;padding-top:5svh;padding-bottom:5svh}
+ .ending-telescope.telescope-ready .telescope-explanation{min-height:64svh;padding-top:7svh;padding-bottom:12svh}
+}
+
+.ending-telescope.telescope-ready .telescope-explanation{opacity:var(--spectrum-band-note,0);visibility:var(--spectrum-explanation-visibility,hidden)}
+@media print{.ending-telescope.telescope-ready .telescope-explanation{opacity:1;visibility:visible}}

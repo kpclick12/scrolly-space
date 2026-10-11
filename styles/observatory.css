@@ -1,0 +1,81 @@
+/* Six observations share a quiet black field. All rules are scoped. */
+.observatory-v3{background:#000;border-top-color:#111;overflow-x:clip}
+.observatory-v3 .observatory-heading{padding-bottom:clamp(70px,12svh,140px)}
+.observatory-v3 .observation-story,.observatory-v3 .observation-scene{position:relative;background:#000;isolation:isolate}
+.observatory-v3 .observation-scene{padding-bottom:70px;scroll-margin-top:20px}
+.observatory-v3 .observation-image{position:relative;margin:0;width:100%;max-width:none;overflow:hidden;background:#000}
+.observatory-v3 .observation-image>img,.observatory-v3 .observation-field img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;transform:none;filter:none}
+.observatory-v3 .observation-field{width:100%;overflow:hidden}
+.observatory-v3 .observation-image figcaption{position:relative;max-width:700px;margin:0 auto;padding:20px var(--gutter);font:10px/1.75 var(--mono);letter-spacing:.06em;color:#e2e4e7;text-wrap:balance}
+.observatory-v3 .observation-image figcaption span{display:block;letter-spacing:0;color:#aeb7c1}
+.observatory-v3 .observation-reading{position:relative;padding:40px var(--gutter) 0;z-index:2}
+.observatory-v3 .observation-copy{position:relative;max-width:590px;margin:0 auto;min-width:0}
+.observatory-v3 .observation-copy h3{font-size:clamp(36px,4.2vw,64px);line-height:1.06;margin:24px 0 28px;text-wrap:balance}
+.observatory-v3 .observation-copy p:not(.eyebrow){font-size:clamp(18px,1.55vw,22px);line-height:1.72;margin-top:22px;color:#e3e5e8}
+.observatory-v3 .observation-copy .source-ref{display:inline-block;scroll-margin-block:25svh}
+.observatory-v3 .observation-copy .redshift-context{font-size:clamp(17px,1.4vw,20px);color:#bec6d1;margin-top:30px}
+.observatory-v3 a:focus-visible{outline:2px solid #ffe1a0;outline-offset:5px;background:#000;color:#fff}
+.observatory-v3 .observation-map{position:relative;aspect-ratio:2.05;overflow:hidden;width:100%}
+.observatory-v3 .observation-map img{position:absolute;width:100%;height:auto;max-height:none;left:0;top:-28.7%;object-fit:contain}
+.observatory-v3 .comparison-images{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;height:auto;max-width:none;aspect-ratio:auto;overflow:hidden}
+.observatory-v3 .comparison-images img,.observatory-v3 .comparison-images .comparison-infrared{position:static;display:block;width:100%;height:auto;object-fit:contain;opacity:1;clip-path:none;filter:none}
+.observatory-v3 .comparison-divider,.observatory-v3 .comparison-tag{display:none}
+.observatory-v3 .observation-note{font-family:var(--serif)!important;font-size:clamp(21px,2.2vw,28px)!important;transform:none!important}
+/* Enhancement is local and opt-in: no JavaScript and reduced motion use the flow above. */
+.observatory-v3.is-immersive .observation-scene{padding:0;scroll-margin-top:0}
+.observatory-v3.is-immersive .observation-image{position:sticky;top:0;height:100svh;opacity:var(--observation-light,0);pointer-events:none;z-index:0}
+.observatory-v3.is-immersive .observation-image>img,.observatory-v3.is-immersive .observation-field,.observatory-v3.is-immersive .observation-field img{width:100%;height:100%;object-fit:cover;max-height:none}
+.observatory-v3.is-immersive .observation-andromeda>img{object-position:45% 48%;transform:scale(calc(1.015 + .05 * var(--observation-focus,0))) translateX(calc(-.6% * var(--observation-focus,0)));transform-origin:45% 48%}
+.observatory-v3.is-immersive .observation-field img{object-position:57% 46%;transform:scale(calc(1.02 + .13 * var(--observation-focus,0))) translate(calc(-.7% * var(--observation-focus,0)),calc(.4% * var(--observation-focus,0)));transform-origin:57% 46%}
+.observatory-v3.is-immersive .observation-reading{margin-top:-100svh;padding:150svh max(var(--gutter),6vw) 125svh;pointer-events:none}
+.observatory-v3.is-immersive .observation-copy{width:min(34%,510px);margin:0 0 0 auto;text-shadow:0 1px 10px #000,0 1px 3px #000;pointer-events:auto}
+.observatory-v3.is-immersive .observation-copy::before{content:"";position:absolute;z-index:-1;inset:-85px -7vw;background:radial-gradient(ellipse at center,#000d 0%,#000b 38%,#0005 65%,transparent 80%);pointer-events:none}
+.observatory-v3.is-immersive .observation-image figcaption{position:absolute;bottom:24px;left:var(--gutter);right:var(--gutter);width:auto;max-width:900px;margin:0;padding:14px 18px;opacity:var(--observation-caption,1);text-shadow:0 1px 8px #000;background:linear-gradient(90deg,#0009,transparent);z-index:2}
+.observatory-v3.is-immersive .observation-mom>img,.observatory-v3.is-immersive .observation-lensing>img{object-fit:contain;transform:none}
+.observatory-v3.is-immersive .scene-mom .observation-copy{margin-left:0;margin-right:auto;width:min(40%,560px)}
+.observatory-v3.is-immersive .observation-map{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(96vw,160svh);aspect-ratio:2.05}
+.observatory-v3.is-immersive .comparison-images{display:block;position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;filter:none}
+.observatory-v3.is-immersive .comparison-images img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:49% 58%}
+.observatory-v3.is-immersive .comparison-images .comparison-infrared{clip-path:inset(0 calc(100% - var(--observation-wipe,0) * 100%) 0 0)}
+.observatory-v3.is-immersive .comparison-divider{display:block;left:calc(var(--observation-wipe,0) * 100%);opacity:calc(4 * var(--observation-wipe,0) * (1 - var(--observation-wipe,0)));top:0;bottom:0}
+.observatory-v3.is-immersive .comparison-tag{display:block;top:25px;font:11px var(--mono)}
+.observatory-v3.is-immersive .comparison-tag-hubble{right:var(--gutter);opacity:clamp(0,calc(5 - 6 * var(--observation-wipe,0)),1)}
+.observatory-v3.is-immersive .comparison-tag-webb{left:var(--gutter);opacity:clamp(0,calc(5 * var(--observation-wipe,0) - .6),1)}
+@media(max-width:1050px){
+ .observatory-v3.is-immersive .observation-copy{width:min(43%,500px)}
+ .observatory-v3 .observation-copy h3{font-size:clamp(35px,4.6vw,54px)}
+}
+@media(max-width:700px){
+ .observatory-v3 .observation-copy h3{font-size:clamp(34px,9.4vw,48px)}
+ .observatory-v3 .observation-copy p:not(.eyebrow){font-size:18px;line-height:1.7}
+ .observatory-v3 .observation-copy .redshift-context{font-size:17px}
+ .observatory-v3 .comparison-images{gap:7px}
+ .observatory-v3.is-immersive .observation-reading{padding:150svh var(--gutter) 125svh}
+ .observatory-v3.is-immersive .observation-copy,.observatory-v3.is-immersive .scene-mom .observation-copy{width:100%;margin:0 auto;max-width:550px}
+ .observatory-v3.is-immersive .observation-copy::before{inset:-80px calc(-1 * var(--gutter));background:linear-gradient(0deg,transparent,#000d 14%,#000d 86%,transparent)}
+ .observatory-v3.is-immersive .observation-andromeda>img{object-position:49% 48%;transform-origin:49% 48%}
+ .observatory-v3.is-immersive .observation-field img{object-position:58% 46%}
+ .observatory-v3.is-immersive .observation-image figcaption{bottom:20px;left:12px;right:12px;font-size:9px;padding:12px;line-height:1.6}
+ .observatory-v3.is-immersive .observation-mom>img{object-fit:contain}
+ .observatory-v3.is-immersive .comparison-images img{object-position:49% 55%}
+ .observatory-v3.is-immersive .observation-map{width:100%}
+}
+@media print{
+ .observatory-v3.is-immersive .observation-image{position:relative;height:auto;opacity:1}
+ .observatory-v3.is-immersive .observation-reading{margin:0;padding:30px}
+ .observatory-v3.is-immersive .observation-copy{width:100%;max-width:none}
+ .observatory-v3.is-immersive .observation-copy::before{display:none}
+ .observatory-v3.is-immersive .observation-image figcaption{position:relative;opacity:1}
+ .observatory-v3.is-immersive .observation-map,.observatory-v3.is-immersive .comparison-images{position:relative;inset:auto;transform:none}
+}
+/* Remove the original top instrument label equally in both matched M64 photographs. */
+.observatory-v3.is-immersive .comparison-images img{top:-9.7561%;bottom:auto;height:109.7561%}
+@media(max-width:700px){
+ .observatory-v3:not(.is-immersive) .comparison-images{grid-template-columns:1fr;gap:20px}
+}
+
+/* Overlap only black tails. The still-lit scene paints above the next empty one. */
+.observatory-v3.is-immersive .observation-scene+.observation-scene{margin-top:-80svh}
+.observatory-v3.is-immersive .observation-scene{z-index:0}
+.observatory-v3.is-immersive .observation-scene.is-lit{z-index:1}
+@media print{.observatory-v3.is-immersive .observation-scene+.observation-scene{margin-top:0}}

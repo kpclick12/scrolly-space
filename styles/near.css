@@ -1,0 +1,92 @@
+/* The light lesson is written and drawn on one stable green board. */
+.board-chapter{padding:90px var(--gutter) 90px}
+.board-chapter .board-story{display:block;position:relative;padding:0;max-width:1100px;margin:auto}
+.board-chapter .blackboard{position:relative;top:auto;margin:0;padding:23px 26px 28px;border-width:9px}
+.board-chapter .board-top{display:flex;align-items:center;gap:20px;padding:0 0 16px;margin-bottom:20px}
+.board-chapter .board-top h2{font-family:'Bradley Hand','Segoe Print',cursive;font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:0;color:#edf0dc}
+.board-chapter .board-progress{display:none;gap:6px;flex-shrink:0}
+.board-chapter .board-progress i{display:block;width:18px;height:2px;background:#cbd9b955}
+.board-chapter .board-progress i.is-current{background:#f4d78f}
+.board-chapter .board-pages{display:grid;gap:64px}
+.board-chapter .board-page{min-width:0;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.2fr);align-items:center;gap:36px}
+.board-chapter .board-lesson{min-width:0;font-family:'Bradley Hand','Segoe Print',cursive;color:#f0edda}
+.board-chapter .board-lesson h3{font:inherit;font-size:clamp(28px,3vw,39px);line-height:1.16;letter-spacing:0;color:#f4d78f;margin:0 0 17px}
+.board-chapter .board-lesson p{font-size:23px;line-height:1.5;margin:0 0 13px;color:#f0edda}
+.board-chapter .board-lesson p:last-child{margin-bottom:0}
+.board-chapter .source-ref{font-size:12px;white-space:nowrap;color:#f4d78f}
+.board-chapter .board-drawing{min-width:0;width:100%;margin:0}
+.board-chapter .board-drawing svg{width:100%;height:auto;max-height:none;margin:0;overflow:visible}
+.board-chapter .board-drawing svg text{font:38px 'Bradley Hand','Segoe Print',cursive;fill:#f0edda}
+.board-chapter .board-steps{display:none}
+.board-chapter .board-enhanced .blackboard{position:sticky;top:var(--board-inset,16px);z-index:1}
+.board-chapter .board-enhanced .board-pages{position:relative;display:block;height:var(--board-page-height)}
+.board-chapter .board-enhanced .board-page{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .18s linear}
+.board-chapter .board-enhanced .board-page.is-current{opacity:1;pointer-events:auto}
+.board-chapter .board-enhanced .board-drawing{height:var(--board-drawing-height)}
+.board-chapter .board-enhanced .board-drawing svg{height:100%}
+.board-chapter .board-enhanced .board-progress{display:flex}
+.board-chapter .board-enhanced .board-steps{display:block;margin-top:calc(-1 * var(--board-height));position:relative}
+.board-chapter .board-enhanced .board-step{display:block;min-height:0!important;padding:0;background:none;pointer-events:none}
+.board-chapter .board-page{scroll-margin-top:24px}
+.board-chapter .chalk-wall{fill:none;stroke:#f0edda;stroke-width:3;stroke-linecap:round}
+.board-chapter .chalk-source ellipse{stroke:#e9c58b}
+.board-chapter .board-wave-reference{fill:none;stroke:#d3dfc2;stroke-width:1.7;stroke-dasharray:4 7;opacity:.45}
+.board-chapter .board-wave-stretch{fill:none;stroke:#f4d78f;stroke-width:3;stroke-linecap:round}
+.board-chapter .board-wave-peaks{fill:none;stroke:#e2c986;stroke-width:1.4;stroke-dasharray:3 7;opacity:.7}
+.board-chapter .board-wave-measure{fill:none;stroke:#f4d78f;stroke-width:2}
+.board-chapter .chalk-ray{stroke-dashoffset:0}
+.board-chapter .board-drawing .chalk-source,.board-chapter .board-drawing .chalk-eye{transition:none}
+@media(max-width:700px){
+ /* Actual measured question height determines the free area above the diagram. */
+ .prologue .prologue-stage{height:100svh;min-height:0}
+ .prologue .prologue-text{margin-top:-100svh}
+ .js .prologue .solar-journey{min-height:0;padding-top:var(--near-question-gap,70svh);padding-bottom:80px;gap:0;justify-content:flex-start}
+ .js .prologue .solar-answer{margin-top:var(--near-answer-gap,180svh)}
+ .prologue .solar-question h2{font-size:clamp(43px,12vw,59px);margin:16px 0 20px}
+ .prologue .solar-question>p:last-child{font-size:18px;line-height:1.6}
+ .prologue .solar-answer>p:not(.eyebrow):not(.big-time){font-size:19px;line-height:1.65}
+ .prologue .solar-answer>p:last-child{font-size:18px!important}
+ .prologue .solar-answer .big-time{font-size:clamp(65px,20vw,86px)}
+ .prologue .solar-earth,.prologue .solar-path{top:var(--near-scene-y,65%)}
+ .prologue .solar-label-sun{top:calc(var(--near-scene-y,65%) + 70px)}
+ .prologue .solar-label-earth{top:calc(var(--near-scene-y,65%) + 54px)}
+ .prologue .solar-clock{top:calc(var(--near-scene-y,65%) - 78px)}
+ .prologue .solar-model-note{top:var(--near-note-y,83%);font-size:9px;padding-inline:16px}
+ .prologue .solar-model-note span{font-size:9px}
+
+ .board-chapter{padding:64px max(12px,var(--gutter)) 64px}
+ .board-chapter .blackboard{padding:15px 14px 19px;border-width:6px;margin:0}
+ .board-chapter .board-top{display:flex;padding:0 0 10px;margin:0 0 15px;gap:12px}
+ .board-chapter .board-top h2{font-size:25px}
+ .board-chapter .board-progress{gap:4px}
+ .board-chapter .board-progress i{width:12px}
+ .board-chapter .board-page{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-content:start;gap:16px}
+ .board-chapter .board-lesson h3{font-size:27px;line-height:1.15;margin:0 0 13px}
+ .board-chapter .board-lesson p{font-size:19px;line-height:1.4;margin:0 0 10px}
+ .board-chapter .board-drawing svg text{font-size:40px}
+ .board-chapter .board-enhanced .board-page{grid-template-rows:auto var(--board-drawing-height)}
+ .board-chapter .board-enhanced .board-steps{margin-top:calc(-1 * var(--board-height))}
+ .board-chapter .chalk-tray{left:-9px;right:-9px;bottom:-15px;height:10px}
+ .board-chapter .chalk-tray span{height:14px;width:45px}
+}
+@media(max-width:350px){
+ .board-chapter{padding-inline:10px}
+ .board-chapter .blackboard{padding-inline:12px}
+ .board-chapter .board-top h2{font-size:24px}
+ .board-chapter .board-lesson h3{font-size:25px}
+ .board-chapter .board-lesson p{font-size:18px}
+}
+html:not(.js) .prologue .solar-sun{display:none}
+html:not(.js) .prologue .solar-question{opacity:1}
+.reduced-motion .board-chapter .board-page{transition:none}
+@media(prefers-reduced-motion:reduce){.board-chapter .board-page{transition:none}}
+@media print{
+ .prologue .prologue-text{margin-top:0}
+ .prologue .solar-journey{padding:25px;gap:30px}
+ .prologue .solar-answer{margin-top:0!important}
+ .board-chapter .board-enhanced .blackboard{position:relative;top:auto}
+ .board-chapter .board-enhanced .board-pages{display:grid;height:auto}
+ .board-chapter .board-enhanced .board-page{position:relative;opacity:1;pointer-events:auto;break-inside:avoid}
+ .board-chapter .board-enhanced .board-steps{display:none}
+ .board-chapter .board-progress{display:none!important}
+}

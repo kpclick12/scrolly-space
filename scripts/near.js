@@ -40,7 +40,10 @@
       if (mobile()) {
         const H = stage.clientHeight;
         journey.style.setProperty('--near-question-gap', `${Math.round(H * .70)}px`);
-        const qTop = question.getBoundingClientRect().top - prologue.getBoundingClientRect().top;
+        // The question sticks while the light travels. Measure its original
+        // position from the section, not its moving sticky rectangle.
+        const qTop = journey.getBoundingClientRect().top - prologue.getBoundingClientRect().top
+          + parseFloat(getComputedStyle(journey).paddingTop);
         const qHeight = question.offsetHeight;
         // Read the whole question before launching. The measured answer follows
         // the completed flight rather than sharing the diagram's reading field.
@@ -52,7 +55,7 @@
         const sceneY = Math.min(H - 125, Math.max(H * .65, 24 + qHeight + 108));
         prologue.style.setProperty('--near-scene-y', `${sceneY}px`);
         prologue.style.setProperty('--near-note-y', `${sceneY + 97}px`);
-        mobileJourney = { settleAt, travelStart, travelEnd, sceneY, sceneBottom: sceneY + 131 };
+        mobileJourney = { questionTop: qTop, questionHeight: qHeight, settleAt, travelStart, travelEnd, sceneY, sceneBottom: sceneY + 131 };
       } else {
         journey.style.removeProperty('--near-question-gap');
         journey.style.removeProperty('--near-answer-gap');
@@ -100,7 +103,7 @@
     const y = -prologue.getBoundingClientRect().top;
     const h = hero.offsetHeight, isMobile = mobile();
     const H = stage.clientHeight;
-    const qTop = question.getBoundingClientRect().top + y;
+    const qTop = isMobile ? mobileJourney.questionTop : question.getBoundingClientRect().top + y;
     const settleAt = isMobile ? mobileJourney.settleAt : qTop - innerHeight * .14;
     const t = reduced() ? +(y > h * .62) : clamp((y - h * .13) / Math.max(1, settleAt - h * .13));
     const move = smooth(t);
@@ -116,7 +119,12 @@
     prologue.style.setProperty('--dawn-opacity', 1 - smooth((t - .2) / .43));
     prologue.style.setProperty('--hero-opacity', reduced() ? 1 - t : 1 - smooth(y / (h * .36)));
     prologue.style.setProperty('--solar-opacity', smooth((t - .72) / .28) * end);
-    prologue.style.setProperty('--question-opacity', isMobile ? (reduced() ? +(y >= settleAt) : smooth((y - settleAt) / (H * .08))) : smooth((t - .70) / .30));
+    // Keep the question above the journey until the answer approaches it.
+    // Its natural scroll entry is visible from the bottom of a phone screen.
+    const questionOpacity = isMobile
+      ? smooth((answerTop - 24 - mobileJourney.questionHeight - 32) / (H * .15))
+      : smooth((t - .70) / .30);
+    prologue.style.setProperty('--question-opacity', questionOpacity);
     sun.style.left = `${x}px`; sun.style.top = `${sy}px`;
     const approach = smooth(t / .62), settle = smooth((t - .62) / .38);
     const peak = isMobile ? 1.6 : 1.65;

@@ -42,6 +42,8 @@
  .prologue .prologue-text{margin-top:-100svh}
  .js .prologue .solar-journey{min-height:0;padding-top:var(--near-question-gap,70svh);padding-bottom:80px;gap:0;justify-content:flex-start}
  .js .prologue .solar-answer{margin-top:var(--near-answer-gap,180svh)}
+ .js .prologue .solar-question{position:sticky;top:24px;align-self:stretch}
+ .js .prologue .solar-journey:focus-visible .solar-question{opacity:var(--question-opacity,1)}
  .prologue .solar-question h2{font-size:clamp(43px,12vw,59px);margin:16px 0 20px}
  .prologue .solar-question>p:last-child{font-size:18px;line-height:1.6}
  .prologue .solar-answer>p:not(.eyebrow):not(.big-time){font-size:19px;line-height:1.65}
@@ -84,6 +86,7 @@ html:not(.js) .prologue .solar-question{opacity:1}
  .prologue .prologue-text{margin-top:0}
  .prologue .solar-journey{padding:25px;gap:30px}
  .prologue .solar-answer{margin-top:0!important}
+ .js .prologue .solar-question{position:static;opacity:1!important}
  .board-chapter .board-enhanced .blackboard{position:relative;top:auto}
  .board-chapter .board-enhanced .board-pages{display:grid;height:auto}
  .board-chapter .board-enhanced .board-page{position:relative;opacity:1;pointer-events:auto;break-inside:avoid}

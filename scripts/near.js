@@ -177,7 +177,7 @@
   function restoreOwnedAnchor() {
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
-    const target = id && document.getElementById(id);
+    const target = id ? document.getElementById(id) : null;
     if (target?.matches('.board-page[data-board]')) showBoardPage(target);
   }
   addEventListener('scroll', schedule, { passive: true });

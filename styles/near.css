@@ -1,22 +1,24 @@
+/* Kalam, Indian Type Foundry, SIL OFL 1.1. Served locally for consistent notes on every device. */
+@font-face{font-family:'Kalam Notes';font-style:normal;font-weight:400;font-display:swap;src:url('../assets/fonts/kalam/Kalam-Regular-latin.woff2') format('woff2')}
 /* The light lesson is written and drawn on one stable green board. */
 .board-chapter{padding:90px var(--gutter) 90px}
 .board-chapter .board-story{display:block;position:relative;padding:0;max-width:1100px;margin:auto}
 .board-chapter .blackboard{position:relative;top:auto;margin:0;padding:23px 26px 28px;border-width:9px}
 .board-chapter .board-top{display:flex;align-items:center;gap:20px;padding:0 0 16px;margin-bottom:20px}
-.board-chapter .board-top h2{font-family:'Bradley Hand','Segoe Print',cursive;font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:0;color:#edf0dc}
+.board-chapter .board-top h2{font-family:'Kalam Notes',sans-serif;font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:0;color:#edf0dc}
 .board-chapter .board-progress{display:none;gap:6px;flex-shrink:0}
 .board-chapter .board-progress i{display:block;width:18px;height:2px;background:#cbd9b955}
 .board-chapter .board-progress i.is-current{background:#f4d78f}
 .board-chapter .board-pages{display:grid;gap:64px}
 .board-chapter .board-page{min-width:0;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.2fr);align-items:center;gap:36px}
-.board-chapter .board-lesson{min-width:0;font-family:'Bradley Hand','Segoe Print',cursive;color:#f0edda}
+.board-chapter .board-lesson{min-width:0;font-family:'Kalam Notes',sans-serif;color:#f0edda}
 .board-chapter .board-lesson h3{font:inherit;font-size:clamp(28px,3vw,39px);line-height:1.16;letter-spacing:0;color:#f4d78f;margin:0 0 17px}
 .board-chapter .board-lesson p{font-size:23px;line-height:1.5;margin:0 0 13px;color:#f0edda}
 .board-chapter .board-lesson p:last-child{margin-bottom:0}
 .board-chapter .source-ref{font-size:12px;white-space:nowrap;color:#f4d78f}
 .board-chapter .board-drawing{min-width:0;width:100%;margin:0}
 .board-chapter .board-drawing svg{width:100%;height:auto;max-height:none;margin:0;overflow:visible}
-.board-chapter .board-drawing svg text{font:38px 'Bradley Hand','Segoe Print',cursive;fill:#f0edda}
+.board-chapter .board-drawing svg text{font:38px 'Kalam Notes',sans-serif;fill:#f0edda}
 .board-chapter .board-steps{display:none}
 .board-chapter .board-enhanced .blackboard{position:sticky;top:var(--board-inset,16px);z-index:1}
 .board-chapter .board-enhanced .board-pages{position:relative;display:block;height:var(--board-page-height)}
